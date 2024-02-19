@@ -1,0 +1,40 @@
+{
+  "name": "subql-persistence",
+  "version": "0.0.1",
+  "description": "Testing subql starter",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "codegen": "rm -rf src/types && subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
+    "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
+    "prepack": "rm -rf dist && npm run build",
+    "test": "subql build && subql-node-cosmos test"
+  },
+  "homepage": "https://github.com/persistenceOne/subql-persistence",
+  "repository": "github:persistenceOne/subql-persistence",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "Ajeet Goyal",
+  "license": "MIT",
+  "devDependencies": {
+    "@cosmjs/stargate": "^0.30.1",
+    "@subql/cli": "latest",
+    "@subql/testing": "latest",
+    "@subql/node-cosmos": "latest",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@subql/types-cosmos": "latest",
+    "@types/node": "^17.0.21",
+    "pino": "^7.8.0",
+    "ts-proto": "^1.112.1",
+    "tslib": "^2.3.1"
+  },
+  "resolutions": {
+    "@polkadot/util": "11.1.3"
+  }
+}
